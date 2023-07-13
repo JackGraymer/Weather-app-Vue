@@ -69,7 +69,6 @@ export default {
       let t = this.weather.main.temp;
       let img = ''
       if(t < 10){
-        document.querySelector('main').style.backgroundImage = "url('./images/warm.jpg')";
         img = "cold";
       }else if (t >= 10 && t < 20){
         img = "warm";
@@ -77,7 +76,7 @@ export default {
       else{
         img = "hot";
       }
-      document.querySelector('main').style.backgroundImage = `url('./images/${img}.jpg')`;
+      document.querySelector('main').style.backgroundImage = `url('../src/assets/images/${img}.jpg')`;
     }
   }
 }
