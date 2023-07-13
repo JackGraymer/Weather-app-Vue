@@ -42,11 +42,12 @@ export default {
   methods:{
     fetchWeather(e){
       if(e.key == 'Enter'){
-        fetch(`${this.url_base}weather?q=${this.query}&units=metric&appid=${this.api_key}`)
+        fetch(`${this.url_base}weather?q=${this.query}&units=metric&exclude=hourly&appid=${this.api_key}`)
         .then(res => {
           return res.json();
         }).then(this.setResults)
-        .then(this.setBackground);
+        .then(this.setBackground)
+        .then(this.query = '');
       }
     },
     setResults(results){
@@ -66,11 +67,12 @@ export default {
       return `${day}, ${date} ${month} ${year}`
     },
     setBackground(){
+      if(typeof this.weather.main == 'undefined') return;
       let t = this.weather.main.temp;
       let img = ''
       if(t < 10){
         img = "cold";
-      }else if (t >= 10 && t < 20){
+      }else if (t >= 10 && t < 23){
         img = "warm";
       }
       else{
