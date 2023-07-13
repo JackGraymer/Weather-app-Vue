@@ -78,7 +78,7 @@ export default {
       else{
         img = "hot";
       }
-      document.querySelector('main').style.backgroundImage = `url('../src/assets/images/${img}.jpg')`;
+      document.querySelector('main').style.backgroundImage = `url('/images/${img}.jpg')`;
     }
   }
 }
@@ -88,7 +88,7 @@ export default {
 <style scoped>
 
   main{
-    background-image: url('../src/assets/images/warm.jpg');
+    background-image: url('/images/warm.jpg');
     background-position: center;
     background-size: cover;
     transition: background-image 0.5s ease-in-out;
